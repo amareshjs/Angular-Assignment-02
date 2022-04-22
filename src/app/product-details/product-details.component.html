@@ -1,0 +1,56 @@
+<!-- <p>product-details works!</p> -->
+
+<div
+  class="parent-div d-flex align-items-center justify-content-center bg-dark text-light"
+  style="width: 100%; height: 100vh"
+>
+  <div class="child-div">
+    <div class="text-center display-4 my-5 bg-primary rounded" >Product Details</div>
+    <div class="border-bottom  border-primary">
+
+        <table class="table table-borderless h4 text-light">
+            <tbody>
+                <tr>
+                    <td>Product ID</td>
+          <td>: {{ product.id }}</td>
+        </tr>
+        <tr>
+            <td>Product Name</td>
+            <td>: {{ product.ProductName }}</td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>: {{ product.Category }}</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>: {{ product.Price }}</td>
+        </tr>
+        <tr>
+            <td>Serial Number/Model Number</td>
+            <td>: {{ product.SerialNumber }}</td>
+        </tr>
+        <tr>
+            <td>Release Date</td>
+            <td>: {{ product.ReleaseDate }}</td>
+        </tr>
+        <tr>
+            <td>Stock Units</td>
+            <td>: {{ product.StockUnit }}</td>
+        </tr>
+        <tr>
+            <td>Discription</td>
+            <td>: {{ product.Discription }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    <div class="text-center my-5" >
+
+        <a routerLink="/list">
+            <button type="button" class="btn btn-primary btn-lg">Back</button>
+        </a>
+        
+    </div>
+  </div>
+</div>

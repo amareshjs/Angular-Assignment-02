@@ -1,0 +1,48 @@
+{
+  "mobiles": [
+    {
+      "ProductId": "1A2B",
+      "ProductName": "Iphone 13",
+      "Category": "Mobile",
+      "Price": "798.00",
+      "SerialNumber": "ABC896DEF876",
+      "ReleaseDate": "2022-04-21",
+      "StockUnit": "56",
+      "Discription": "Laptop",
+      "id": 1
+    },
+    {
+      "ProductId": "2b3c4d",
+      "ProductName": "Acer Nitro 5",
+      "Category": "Laptop",
+      "Price": "798.00",
+      "SerialNumber": "9968969",
+      "ReleaseDate": "2022-04-07",
+      "StockUnit": "56",
+      "Discription": "Laptop",
+      "id": 2
+    },
+    {
+      "ProductId": "1b2c6d",
+      "ProductName": "Acer Aspire 5",
+      "Category": "Laptop",
+      "Price": "80000",
+      "SerialNumber": "ABC896DEF876",
+      "ReleaseDate": "2022-04-22",
+      "StockUnit": "56",
+      "Discription": "Laptop",
+      "id": 3
+    },
+    {
+      "ProductId": "1A2B",
+      "ProductName": "Iphone 13",
+      "Category": "Laptop",
+      "Price": "798.00",
+      "SerialNumber": "ABC896DEF876",
+      "ReleaseDate": "2022-04-09",
+      "StockUnit": "23",
+      "Discription": "qeqfwfwe",
+      "id": 4
+    }
+  ]
+}

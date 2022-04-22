@@ -1,0 +1,184 @@
+<div class=" align-items-center justify-content-center text-light px-3 py-3 border-primary" style="position: sticky;height: 12vh; width:100%;z-index:9999;border-bottom: 3px solid; background-color:#222831" >
+  <a routerLink="/list">
+    <button type="button" class="btn btn-lg btn-outline-primary" style="float:left;">Back</button>
+  </a>
+  <div class="display-5 text-center mx-0">Add Product</div> 
+     
+</div>
+<div
+  class="px-5 bg-dark"
+  style="height: fit-content; width: 100%"
+>
+  <div class="text-light px-5 py-5" style="height:73vh;overflow-y:scroll; background-color: #393E46;">
+    <!-- ----------------AddProduct Form------------------ -->
+    <div class="d-flex align-items-center justify-content-center">
+      <div style="width:50% ">
+        <form
+      [formGroup]="addProduct"
+      class="needs-validation"
+      novalidate
+    >
+    <div class="mb-3">
+      <label for="ProductId" class="form-label">Product ID</label>
+        <input
+        type="text"
+        class="form-control"
+        id="ProductId"
+        name="ProductId"
+          formControlName="ProductId"
+          />
+        <span
+          style="font-size: smaller; color:#FFD369"
+          *ngIf="ProductId && ProductId.invalid && ProductId.touched"
+          >This Field is Required and Only Alphabets and Numbers allowed.</span
+        >
+        <br />
+      </div>
+      <div class="mb-3">
+        <label for="ProductName" class="form-label">Product Name</label>
+        <input
+        type="text"
+        class="form-control"
+          id="ProductName"
+          name="ProductName"
+          formControlName="ProductName"
+        />
+
+        <span
+          style="font-size: smaller; color:#FFD369"
+          *ngIf="ProductName && ProductName.invalid && ProductName.touched"
+          >This Field is Required and max 30 characters and alphabets are
+          allowed.</span
+        >
+        <br />
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01"
+          >Category</label
+        >
+        <select
+          class="form-select"
+          id="inputGroupSelect01"
+          name="Category"
+          formControlName="Category"
+        >
+          <option selected disabled value="">Choose...</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Laptop">Laptop</option>
+          <option value="TV">TV</option>
+        </select>
+        <!-- <span style="font-size: smaller; color: red;" *ngIf="Category && Category.invalid && Category.touched">This Field is Required.</span>
+          <br> -->
+        </div>
+      <div class="mb-3">
+        <label for="Price" class="form-label">Price</label>
+        <input
+        type="text"
+        class="form-control"
+        id="Price"
+        name="Price"
+        formControlName="Price"
+        />
+        <span
+        style="font-size: smaller; color:#FFD369"
+        *ngIf="Price && Price.invalid && Price.touched"
+        >This Field is Required and Please Enter Float Value.</span
+        >
+        <br />
+      </div>
+      <div class="mb-3">
+        <label for="SerialNumber" class="form-label"
+          >Serial Number/Model Number</label
+          >
+          <input
+          type="text"
+          class="form-control"
+          id="SerialNumber"
+          name="SerialNumber"
+          formControlName="SerialNumber"
+          />
+        <span
+          style="font-size: smaller; color:#FFD369"
+          *ngIf="SerialNumber && SerialNumber.invalid && SerialNumber.touched"
+          >This Field is Required and Only Alphabets and Numbers allowed.</span
+          >
+          <br />
+      </div>
+
+      <div class="mb-3">
+        <label for="ReleaseDate" class="form-label">Release Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="ReleaseDate"
+          name="ReleaseDate"
+          max="{{ maxDate }}"
+          formControlName="ReleaseDate"
+        />
+        <span
+          style="font-size: smaller; color:#FFD369"
+          *ngIf="ReleaseDate && ReleaseDate.invalid && ReleaseDate.touched"
+          >This Field is Required.</span
+          >
+        <br />
+      </div>
+
+      <div class="mb-3">
+        <label for="StockUnit" class="form-label">Stock Units</label>
+        <input
+          type="text"
+          class="form-control"
+          id="StockUnit"
+          name="StockUnit"
+          formControlName="StockUnit"
+        />
+        <span
+          style="font-size: smaller; color:#FFD369"
+          *ngIf="StockUnit && StockUnit.invalid && StockUnit.touched"
+          >This Field is Required and Only Numbers are allowed.</span
+        >
+        <br />
+      </div>
+      <div class="mb-3">
+        <label for="Discription" class="form-label">Discription</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Discription"
+          name="Discription"
+          formControlName="Discription"
+          />
+          <span
+          style="font-size: smaller; color: #FFD369"
+          *ngIf="Discription && Discription.invalid && Discription.touched"
+          >This Field is Required and max 150 characters and alphabets are
+          allowed.</span
+          >
+          <br />
+        </div>
+      </form>
+    </div>
+    </div>
+    <!-- --------------------form End------------------- -->
+  </div>
+      <div class="modal-footer border-primary" style="height:15vh;border-top: 3px solid">
+        <a routerLink="/list">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </a>
+        <!-- <button type="reset" class="btn btn-primary">Reset</button> -->
+        <button
+        [disabled]="addProduct.invalid"
+        type="submit"
+        class="btn btn-primary"
+        (click)="submit(addProduct.value)"
+        >
+        Add
+        </button>
+      </div>
+    
+    
+  
+</div>
