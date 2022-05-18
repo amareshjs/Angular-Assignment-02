@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductDataService } from '../services/product-data.service';
+import { ProductDataService } from 'src/app/services/product-data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -20,12 +20,17 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ProductId=this.route.snapshot.params['ProductId'];
-    // this.ProductData.getOne(this.ProductId);
-    this.ProductData.getOne(this.ProductId).subscribe((data)=>{
-      console.log(data);
-      this.product=data;
-      // console.log(this.product);
+    // this.ProductId=this.route.snapshot.params['ProductId'];
+    // // this.ProductData.getOne(this.ProductId);
+    // this.ProductData.getOne(this.ProductId).subscribe((data)=>{
+    //   console.log(data);
+    //   this.product=data;
+    //   console.log(this.product);
+    // })
+    console.log(this.ProductId);
+    this.ProductData.getOne(this.route.snapshot.params['id'])
+    .subscribe((res)=>{
+      this.product = res;
     })
   }
   

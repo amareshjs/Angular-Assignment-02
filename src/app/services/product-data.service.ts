@@ -6,17 +6,16 @@ import{HttpClient} from'@angular/common/http';
 })
 export class ProductDataService {
 url="http://localhost:3000/mobiles";
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {}
   getData(){
     return this.http.get(this.url);
   }
   postData(data:any){
     return this.http.post(this.url,data);
   }
-  getOne(id:any){
+  getOne(id:Number){
     console.log(id);
-    return this.http.get("http://localhost:3000/mobiles/"+id);
-    
+    return this.http.get('http://localhost:3000/mobiles/'+id);
     // return id;
   }
   delete(id:any){

@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td>Product Name</td>
-            <td>: {{ product.ProductName }}</td>
+            <td>: {{ product.ProductName | uppercase }}</td>
         </tr>
         <tr>
           <td>Category</td>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td>Price</td>
-            <td>: {{ product.Price }}</td>
+            <td>: {{ product.Price | currency:'INR'}}</td>
         </tr>
         <tr>
             <td>Serial Number/Model Number</td>
@@ -32,11 +32,19 @@
         </tr>
         <tr>
             <td>Release Date</td>
-            <td>: {{ product.ReleaseDate }}</td>
+            <td>: {{ product.ReleaseDate | date:'mediumDate'}}</td>
         </tr>
         <tr>
             <td>Stock Units</td>
-            <td>: {{ product.StockUnit }}</td>
+                <ng-template [ngIf]="product.StockUnit <=10 && product.StockUnit>3">
+                    <td style="color: #fd7e14;">: Only {{product.StockUnit}} left</td>
+                </ng-template>
+                <ng-template [ngIf]="product.StockUnit<=3">
+                    <td style="color:red;">: Only {{product.StockUnit}} left</td>
+                </ng-template>
+                <ng-template [ngIf]="product.StockUnit > 10">
+                    <td style="color:green;">: Available</td>
+                </ng-template>
         </tr>
         <tr>
             <td>Discription</td>
@@ -47,7 +55,7 @@
 </div>
     <div class="text-center my-5" >
 
-        <a routerLink="/list">
+        <a routerLink="/feature/list">
             <button type="button" class="btn btn-primary btn-lg">Back</button>
         </a>
         

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AppRoutingModule } from '../app-routing.module';
-import { ProductDataService } from '../services/product-data.service';
+import { ProductDataService } from '../../services/product-data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -85,7 +84,7 @@ export class AddProductComponent implements OnInit {
     console.log(data);
     this.productData.postData(data).subscribe((result: any)=>{
       alert("Data Added Successfully");
-      this.route.navigate(['/list']);
+      this.route.navigate(['/feature/list']);
     })
   }
   
