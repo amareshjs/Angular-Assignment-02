@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginDetailService } from 'src/app/services/login-detail.service';
 
@@ -8,55 +8,37 @@ import { LoginDetailService } from 'src/app/services/login-detail.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  responsedata:any
-
-  loginForm=new FormGroup({
-    Email:new FormControl("",Validators.required),
-    Password:new FormControl("",Validators.required),
-  });
-
-  constructor(
-    private loginService:LoginDetailService,
-    private route:Router
-  ) { }
-
-  login(){
-
-
-    if(this.loginForm.valid){
-
-
-        console.log(this.loginForm.value);
-      this.loginService.login(this.loginForm.value).subscribe(result=>{
-        if(result!=null){
-          this.responsedata=result;
-          console.log(this.responsedata)
-          localStorage.setItem('token',this.responsedata.jwtToken);
-          // this.route.navigate(['/feature/list']);
-        }
-      })
+  export class LoginComponent implements OnInit {
+    submitted = false;
+    /*Regular Expression for Email and Password validation*/
+    emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
+    passwordPattern =
+      '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}';
 
 
 
+    loginForm=new FormGroup({
+          email:new FormControl("",[Validators.required,Validators.pattern(this.emailPattern)]),
+          password:new FormControl("",[Validators.required,Validators.pattern(this.passwordPattern)]),
+        });
+    
+    constructor(
+      private loginService : LoginDetailService,
+      private router : Router,
+      ) {}
+    ngOnInit(): void {    }
+    checkResponse=false
+    login() {
 
 
-
-
-
-
-
-    // this.loginService.login(this.loginForm.value).subscribe(
-    //   res=>console.log(res),
-    //   err=>console.log(err)
-    // )
+      this.loginService.checkUser(this.loginForm.value.email,this.loginForm.value.password)
+      this.checkResponse=true
     }
 
-    
-    
+    get email(){
+      return this.loginForm.get('email');
+    }
+    get password(){
+      return this.loginForm.get('password');
+    }
   }
-
-  ngOnInit(): void {
-  }
-
-}

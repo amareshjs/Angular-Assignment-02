@@ -32,16 +32,29 @@
       "StockUnit": "786",
       "Discription": "wetyuii",
       "id": 4
+    },
+    {
+      "ProductId": "uewfwfwef",
+      "ProductName": "dwqqd",
+      "Category": "Laptop",
+      "Price": "49000.00",
+      "SerialNumber": "qwdqdwqddqd",
+      "ReleaseDate": "2022-05-19",
+      "StockUnit": "34",
+      "Discription": "efwfwefwefw",
+      "id": 5
     }
   ],
   "login": [
     {
-      "Email": "admin@gmail.com",
-      "Password": "Admin@123"
+      "email": "admin@gmail.com",
+      "password": "Admin@123",
+      "type": "admin"
     },
     {
-      "Email": "user@gmail.com",
-      "Password": "User@123"
+      "email": "user@gmail.com",
+      "password": "User@123",
+      "type": "user"
     }
   ]
 }

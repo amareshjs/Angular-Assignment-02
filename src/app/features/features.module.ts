@@ -7,23 +7,15 @@ import { WellScreenComponent } from './well-screen/well-screen.component';
 import { RouterModule } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { AuthGuardGuard } from '../guards/auth-guard.guard';
 
 const routes: Routes = [
+    {path:'list',component:ListViewComponent},
+    {path:'detail/:id',component:ProductDetailsComponent},
+    {path:'',component:WellScreenComponent},
     {
-    path:'list',
-    component:ListViewComponent
-    },
-    {
-      path:'detail/:id',
-      component:ProductDetailsComponent
-    },
-    {
-      path:'',
-      component:WellScreenComponent
-    },
-    {
-      path:'addProduct',
-      component:AddProductComponent
+      path:'addProduct',canActivate:[AuthGuardGuard],
+    component:AddProductComponent
     }
 ];
 
